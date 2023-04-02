@@ -1,8 +1,10 @@
 HELP.md
-target/
+keycloak-professor-app/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+keycloak-student--app/target/
 
 ### STS ###
 .apt_generated
