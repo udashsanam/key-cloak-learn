@@ -4,7 +4,6 @@ keycloak-professor-app/target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-keycloak-student--app/target/
 
 ### STS ###
 .apt_generated
