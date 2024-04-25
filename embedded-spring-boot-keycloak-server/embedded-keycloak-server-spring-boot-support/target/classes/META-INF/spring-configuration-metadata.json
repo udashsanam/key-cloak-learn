@@ -1,0 +1,112 @@
+{
+  "groups": [
+    {
+      "name": "keycloak",
+      "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    },
+    {
+      "name": "keycloak.custom",
+      "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties"
+    },
+    {
+      "name": "keycloak.custom.admin-user",
+      "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$AdminUser",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
+      "sourceMethod": "getAdminUser()"
+    },
+    {
+      "name": "keycloak.custom.infinispan",
+      "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Infinispan",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
+      "sourceMethod": "getInfinispan()"
+    },
+    {
+      "name": "keycloak.custom.migration",
+      "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Migration",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
+      "sourceMethod": "getMigration()"
+    },
+    {
+      "name": "keycloak.custom.server",
+      "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Server",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
+      "sourceMethod": "getServer()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "keycloak.custom.admin-user.create-admin-user-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$AdminUser"
+    },
+    {
+      "name": "keycloak.custom.admin-user.password",
+      "type": "java.lang.String",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$AdminUser"
+    },
+    {
+      "name": "keycloak.custom.admin-user.username",
+      "type": "java.lang.String",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$AdminUser"
+    },
+    {
+      "name": "keycloak.custom.infinispan.config-location",
+      "type": "org.springframework.core.io.Resource",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Infinispan"
+    },
+    {
+      "name": "keycloak.custom.migration.import-location",
+      "type": "org.springframework.core.io.Resource",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Migration"
+    },
+    {
+      "name": "keycloak.custom.migration.import-provider",
+      "type": "java.lang.String",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Migration"
+    },
+    {
+      "name": "keycloak.custom.server.keycloak-path",
+      "type": "java.lang.String",
+      "description": "Path relative to {@code server.servlet.context-path} for the Keycloak JAX-RS Application to listen to.",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Server"
+    },
+    {
+      "name": "keycloak.entry-set",
+      "type": "java.util.Set<java.util.Map$Entry<java.lang.String,java.lang.Object>>",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    },
+    {
+      "name": "keycloak.key-set",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    },
+    {
+      "name": "keycloak.mod-count",
+      "type": "java.lang.Integer",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    },
+    {
+      "name": "keycloak.size",
+      "type": "java.lang.Integer",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    },
+    {
+      "name": "keycloak.table",
+      "type": "java.util.HashMap$Node<java.lang.String,java.lang.Object>[]",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    },
+    {
+      "name": "keycloak.threshold",
+      "type": "java.lang.Integer",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    },
+    {
+      "name": "keycloak.values",
+      "type": "java.util.Collection<java.lang.Object>",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakProperties"
+    }
+  ],
+  "hints": []
+}

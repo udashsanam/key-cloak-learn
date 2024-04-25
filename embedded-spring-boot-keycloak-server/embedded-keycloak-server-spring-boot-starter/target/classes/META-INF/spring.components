@@ -1,0 +1,1 @@
+com.github.thomasdarimont.keycloak.embedded.starter.EmbeddedSpringKeycloakAutoConfiguration=org.springframework.stereotype.Component
