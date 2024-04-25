@@ -5,6 +5,9 @@ import custom.keycloak.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserCustomService {
 
@@ -12,14 +15,13 @@ public class UserCustomService {
     private UserRepo userRepository;
 
     public UserCustom getUserByUserName(String username){
-        UserCustom userCustom = userRepository.findByUsername(username);
-        if(userCustom == null){return  userCustom;}
-        if(!username.equals("demo")) return null;
-        UserCustom user = new UserCustom();
-        user.setId(1l);
-        user.setUsername("demo");
-        user.setPassword("demo");
-        user.setEmail("demo@demo.com");
-        return user;
+        Optional<UserCustom> userCustom = userRepository.findByUsername(username);
+        if(userCustom.isPresent()){return userCustom.get();}
+        return null;
+
+    }
+
+    public List<UserCustom> findAll(){
+        return userRepository.findAll();
     }
 }

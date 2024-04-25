@@ -4,8 +4,10 @@ import custom.keycloak.model.UserCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 
 @Repository
 public interface UserRepo extends JpaRepository<UserCustom, Long> {
-    UserCustom findByUsername(String username);
+    Optional<UserCustom> findByUsername(String username);
 }

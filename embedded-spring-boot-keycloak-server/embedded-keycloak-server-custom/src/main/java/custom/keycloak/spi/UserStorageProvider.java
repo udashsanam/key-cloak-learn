@@ -19,18 +19,23 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @JBossLog
 public class UserStorageProvider implements org.keycloak.storage.UserStorageProvider ,
-        UserLookupProvider, CredentialInputValidator ,
-        UserQueryProvider,
-        UserRegistrationProvider {
+        UserLookupProvider,
+        CredentialInputValidator ,
+        UserQueryProvider
+
+//        UserRegistrationProvider
+         {
 
     private final UserCustomService userCustomService;
 
     private final KeycloakSession  session;
 
     private final ComponentModel  model;
+
 
 
 
@@ -169,7 +174,8 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
     public boolean isValid(RealmModel realmModel, UserModel userModel, CredentialInput credentialInput) {
         UserCredentialModel cred = (UserCredentialModel) credentialInput;
         log.info(cred.getValue());
-        if(cred.getValue().equals("demo")) return true;
+        UserCustom userData = userCustomService.getUserByUserName(userModel.getUsername());
+        if(cred.getValue().equals(userData.getPassword())) return true;
         return false;
     }
 
@@ -180,18 +186,24 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
 
     @Override
     public List<UserModel> getUsers(RealmModel realmModel) {
+
+        log.infov("[Keycloak UserModel Adapter] Getting users ....");
+
         return List.of();
     }
 
     @Override
     public List<UserModel> getUsers(RealmModel realmModel, int i, int i1) {
+        log.infov("[Keycloak UserModel Adapter] Getting users ....");
         return List.of();
     }
 
     @Override
     public List<UserModel> searchForUser(String s, RealmModel realmModel) {
+
         return List.of();
     }
+
 
     @Override
     public List<UserModel> searchForUser(String s, RealmModel realmModel, int i, int i1) {
@@ -200,7 +212,10 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
 
     @Override
     public List<UserModel> searchForUser(Map<String, String> map, RealmModel realmModel) {
-        return List.of();
+        log.infov("[Keycloak UserModel Adapter] Getting users ....from user query provider for all users  ");
+        List<UserCustom> userCustoms = userCustomService.findAll();
+        List<UserModel> userModels = userCustoms.stream().map(userCustom -> createAdapter(realmModel, userCustom)).collect(Collectors.toList());
+        return userModels;
     }
 
     @Override
@@ -213,6 +228,7 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
         return List.of();
     }
 
+
     @Override
     public List<UserModel> getGroupMembers(RealmModel realmModel, GroupModel groupModel, int i, int i1) {
         return List.of();
@@ -223,13 +239,16 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
         return List.of();
     }
 
-    @Override
-    public UserModel addUser(RealmModel realmModel, String s) {
-        return null;
-    }
-
-    @Override
-    public boolean removeUser(RealmModel realmModel, UserModel userModel) {
-        return false;
-    }
+    /*
+    this if to add user
+     */
+//    @Override
+//    public UserModel addUser(RealmModel realmModel, String s) {
+//        return null;
+//    }
+//
+//    @Override
+//    public boolean removeUser(RealmModel realmModel, UserModel userModel) {
+//        return false;
+//    }
 }
