@@ -1,11 +1,31 @@
 spring:
   datasource:
     username: postgres
-    url: jdbc:postgresql://localhost:5432/test_new
+    jdbcUrl: jdbc:postgresql://localhost:5432/user_base
     hikari:
-      maximum-pool-size: 25
-      minimum-idle: 1
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800
+      leak-detection-threshold: 600000
     password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+  second-datasource:
+    jdbcUrl: jdbc:postgresql://localhost:5432/keycloak_server
+    username: postgres
+    password: postgres
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800
+      leak-detection-threshold: 600000
   devtools:
     restart:
       enabled: false
@@ -21,7 +41,7 @@ logging:
     org.keycloak.services.scheduled.ClusterAwareScheduledTaskRunner: DEBUG
     org.keycloak.services.managers.UserSessionManager: DEBUG
     org.keycloak.timer.basic: DEBUG
-    root: debug
+    root: INFO
 
 
 server:

@@ -33,6 +33,12 @@
       "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Server",
       "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
       "sourceMethod": "getServer()"
+    },
+    {
+      "name": "spring.second-datasource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.github.thomasdarimont.keycloak.embedded.EmbeddedKeycloakConfig",
+      "sourceMethod": "secondDataSource()"
     }
   ],
   "properties": [

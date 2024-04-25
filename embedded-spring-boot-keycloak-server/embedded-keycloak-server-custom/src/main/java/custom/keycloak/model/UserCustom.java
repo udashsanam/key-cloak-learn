@@ -1,4 +1,4 @@
-package custom.keycloak.spi;
+package custom.keycloak.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,10 +6,12 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user-custom")
+@Table(name = "user_custom")
 @Getter
 @Setter
 public class UserCustom {
+
+    @Id
     @SequenceGenerator(name = "users_seq", sequenceName = "users_seq", allocationSize = 1)
     @GeneratedValue(generator = "users_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -17,6 +19,7 @@ public class UserCustom {
     @Column(name = "user_name")
     private String username;
 
+    @Column(name = "password")
     private String password;
 
     @Column(name = "is_password_changed")
@@ -35,6 +38,7 @@ public class UserCustom {
     @Column(name = "account_non_locked")
     private boolean accountNonLocked = true;
 
+    @Column(name = "email")
     private String email;
 
 }

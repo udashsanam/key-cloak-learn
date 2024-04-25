@@ -1,5 +1,7 @@
 package custom.keycloak.spi;
 
+import custom.keycloak.model.UserCustom;
+import custom.keycloak.repo.UserRepo;
 import lombok.extern.jbosslog.JBossLog;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.credential.CredentialInput;
@@ -11,6 +13,7 @@ import org.keycloak.storage.adapter.AbstractUserAdapterFederatedStorage;
 import org.keycloak.storage.user.UserLookupProvider;
 import org.keycloak.storage.user.UserQueryProvider;
 import org.keycloak.storage.user.UserRegistrationProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,6 +31,9 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
     private final KeycloakSession  session;
 
     private final ComponentModel  model;
+
+
+
 
     public UserStorageProvider(UserCustomService userCustomService, KeycloakSession session, ComponentModel model) {
         this.userCustomService = userCustomService;
@@ -52,7 +58,9 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
 
     @Override
     public UserModel getUserByUsername(String s, RealmModel realmModel) {
-        UserCustom  userCustom= userCustomService.getUserByUserName(s);
+
+        UserCustom userCustom= userCustomService.getUserByUserName(s);
+
         if(userCustom ==null) return null;
         return  createAdapter(realmModel, userCustom);
     }

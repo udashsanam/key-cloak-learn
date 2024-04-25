@@ -15,6 +15,8 @@ import org.keycloak.platform.Platform;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -52,8 +54,14 @@ public class EmbeddedKeycloakConfig {
     }
 
     @Bean
+    @ConfigurationProperties(prefix = "spring.second-datasource")
+    public DataSource secondDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean
     @ConditionalOnMissingBean(name = "springBeansJndiContextFactory")
-    protected DynamicJndiContextFactoryBuilder springBeansJndiContextFactory(DataSource dataSource, DefaultCacheManager cacheManager, @Qualifier("fixedThreadPool") ExecutorService executorService) {
+    protected DynamicJndiContextFactoryBuilder springBeansJndiContextFactory(@Qualifier("secondDataSource") DataSource dataSource, DefaultCacheManager cacheManager, @Qualifier("fixedThreadPool") ExecutorService executorService) {
         return new DynamicJndiContextFactoryBuilder(dataSource, cacheManager, executorService);
     }
 
