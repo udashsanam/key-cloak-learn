@@ -1,7 +1,6 @@
 package custom.keycloak.spi;
 
 import custom.keycloak.model.UserCustom;
-import custom.keycloak.repo.UserRepo;
 import lombok.extern.jbosslog.JBossLog;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.credential.CredentialInput;
@@ -12,8 +11,6 @@ import org.keycloak.storage.StorageId;
 import org.keycloak.storage.adapter.AbstractUserAdapterFederatedStorage;
 import org.keycloak.storage.user.UserLookupProvider;
 import org.keycloak.storage.user.UserQueryProvider;
-import org.keycloak.storage.user.UserRegistrationProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.List;
@@ -201,7 +198,10 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
     @Override
     public List<UserModel> searchForUser(String s, RealmModel realmModel) {
 
-        return List.of();
+        log.infov("[Keycloak UserModel Adapter] Getting users ....from user query provider for all users  ");
+        List<UserCustom> userCustoms = userCustomService.findByUsernamelike(s);
+        List<UserModel> userModels = userCustoms.stream().map(userCustom -> createAdapter(realmModel, userCustom)).collect(Collectors.toList());
+        return userModels;
     }
 
 

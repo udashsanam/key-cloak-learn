@@ -24,4 +24,8 @@ public class UserCustomService {
     public List<UserCustom> findAll(){
         return userRepository.findAll();
     }
+
+    public List<UserCustom> findByUsernamelike(String username){
+        return userRepository.findByUsernameContaining(username);
+    }
 }
