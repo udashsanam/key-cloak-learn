@@ -171,6 +171,9 @@ public class UserStorageProvider implements org.keycloak.storage.UserStorageProv
     public boolean isValid(RealmModel realmModel, UserModel userModel, CredentialInput credentialInput) {
         UserCredentialModel cred = (UserCredentialModel) credentialInput;
         log.info(cred.getValue());
+        StorageId storageId = new StorageId(userModel.getId());
+        String externalId = storageId.getExternalId();
+        userModel.setUsername(externalId);
         UserCustom userData = userCustomService.getUserByUserName(userModel.getUsername());
         if(cred.getValue().equals(userData.getPassword())) return true;
         return false;

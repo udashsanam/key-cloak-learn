@@ -14,7 +14,7 @@ public class UserCustomService {
     @Autowired
     private UserRepo userRepository;
 
-    public UserCustom getUserByUserName(String username){
+    public UserCustom   getUserByUserName(String username){
         Optional<UserCustom> userCustom = userRepository.findByUsername(username);
         if(userCustom.isPresent()){return userCustom.get();}
         return null;

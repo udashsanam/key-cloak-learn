@@ -35,6 +35,7 @@ import java.util.concurrent.Executors;
 @Configuration
 public class EmbeddedKeycloakConfig {
 
+
     @Bean
     @ConditionalOnMissingBean(name = "embeddedKeycloakServer")
     protected EmbeddedKeycloakServer embeddedKeycloakServer(ServerProperties serverProperties) {

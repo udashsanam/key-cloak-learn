@@ -1,5 +1,6 @@
 spring:
   datasource:
+    driverClassName: org.postgresql.Driver
     username: postgres
     jdbcUrl: jdbc:postgresql://localhost:5432/user_base
     hikari:
@@ -16,6 +17,7 @@ spring:
     show-sql: true
     generate-ddl: true
   second-datasource:
+    driverClassName: org.postgresql.Driver
     jdbcUrl: jdbc:postgresql://localhost:5432/keycloak_server
     username: postgres
     password: postgres
