@@ -47,8 +47,8 @@ keycloak:
     cacheThemes: true
     folder:
       # disable the folder theme provider by default
-      enabled: false
-      dir: ""
+      enabled: true
+      dir: "src/main/resources/theme"
 
   scheduled:
     interval: 900

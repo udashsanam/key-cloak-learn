@@ -2,5 +2,16 @@
   "themes": [{
     "name": "demo",
     "types": ["login"]
-  }]
+  },
+
+    {
+      "name": "test",
+      "types": ["login"]
+    },
+    {
+      "name": "codelens",
+      "types": ["login"]
+    }
+
+  ]
 }
