@@ -14,31 +14,31 @@
       "name": "keycloak.custom.admin-user",
       "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$AdminUser",
       "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
-      "sourceMethod": "getAdminUser()"
+      "sourceMethod": "public com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties.AdminUser getAdminUser() "
     },
     {
       "name": "keycloak.custom.infinispan",
       "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Infinispan",
       "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
-      "sourceMethod": "getInfinispan()"
+      "sourceMethod": "public com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties.Infinispan getInfinispan() "
     },
     {
       "name": "keycloak.custom.migration",
       "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Migration",
       "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
-      "sourceMethod": "getMigration()"
+      "sourceMethod": "public com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties.Migration getMigration() "
     },
     {
       "name": "keycloak.custom.server",
       "type": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties$Server",
       "sourceType": "com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties",
-      "sourceMethod": "getServer()"
+      "sourceMethod": "public com.github.thomasdarimont.keycloak.embedded.KeycloakCustomProperties.Server getServer() "
     },
     {
       "name": "spring.second-datasource",
       "type": "javax.sql.DataSource",
       "sourceType": "com.github.thomasdarimont.keycloak.embedded.EmbeddedKeycloakConfig",
-      "sourceMethod": "secondDataSource()"
+      "sourceMethod": "public javax.sql.DataSource secondDataSource() "
     }
   ],
   "properties": [
